@@ -1,0 +1,7 @@
+EXPORTS
+Sum @1
+SumArr @2
+ToUpper @3
+AddImages @4
+SubImages @5
+Invert @6
