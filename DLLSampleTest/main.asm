@@ -69,20 +69,6 @@ ToUpper ENDP
 
 
 
-AddImages proc firstChannelToAdd: PTR DWORD, secondChannelToAdd: PTR DWORD, output: PTR DWORD, imageSize: DWORD
-	pushad
-	
-	popad
-	ret
-AddImages endp
-
-SubImages proc firstChannelToAdd: PTR DWORD, secondChannelToSub: PTR DWORD, output: PTR DWORD, imageSize: DWORD
-	pushad
-
-	popad
-	ret
-SubImages endp
-
 Invert proc redChannel:PTR DWORD, greenChannel:PTR DWORD, blueChannel:PTR DWORD, imageSize: DWORD
 	PUSHAD
 
