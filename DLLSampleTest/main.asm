@@ -84,18 +84,81 @@ SubImages proc firstChannelToAdd: PTR DWORD, secondChannelToSub: PTR DWORD, outp
 SubImages endp
 
 Invert proc redChannel:PTR DWORD, greenChannel:PTR DWORD, blueChannel:PTR DWORD, imageSize: DWORD
-	pushad
+	PUSHAD
 
-	popad
-	ret
+
+	MOV ECX, IMAGESIZE
+	MOV ESI, REDCHANNEL
+	L1:
+		MOV EBX, 255
+		MOV EAX, [ESI]
+		SUB EBX, EAX
+		MOV EAX, EBX
+		CMP EAX, 0
+		JL NEGATIVEVAL1
+		
+		JMP SKIP1
+
+		NEGATIVEVAL1:
+		MOV EAX, 0
+
+
+		SKIP1:
+		MOV [ESI], EAX
+		ADD ESI, 4
+		
+	LOOP L1
+
+		MOV ECX, IMAGESIZE
+	MOV ESI, GREENCHANNEL
+
+	L2:
+		MOV EBX, 255
+		MOV EAX, [ESI]
+		SUB EBX, EAX
+		MOV EAX, EBX
+		CMP EAX, 0
+		JL NEGATIVEVAL2
+		
+		JMP SKIP2
+
+		NEGATIVEVAL2:
+		MOV EAX, 0
+
+
+		SKIP2:
+		MOV [ESI], EAX
+		ADD ESI, 4
+		
+	LOOP L2
+
+		MOV ECX, IMAGESIZE
+	MOV ESI, BLUECHANNEL
+
+	L3:
+		MOV EBX, 255
+		MOV EAX, [ESI]
+		SUB EBX, EAX
+		MOV EAX, EBX
+		CMP EAX, 0
+		JL NEGATIVEVAL3
+		
+		JMP SKIP3
+
+		NEGATIVEVAL3:
+		MOV EAX, 0
+
+
+		SKIP3:
+		MOV [ESI], EAX
+		ADD ESI, 4
+		
+	LOOP L3
+
+	POPAD
+	RET
 Invert endp
 
-EqualizeHistogram  proc redChannel:PTR DWORD, greenChannel:PTR DWORD, blueChannel:PTR DWORD, imageSize: DWORD
-	pushad
-
-	popad
-	ret
-EqualizeHistogram endp
 
 
 
