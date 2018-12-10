@@ -38,9 +38,6 @@ namespace CsharpGUI
         private static extern void Invert([In, Out] int[] redChannel, [In, Out] int[] greenChannel,
                                             [In, Out] int[] blueChannel, int imageSize);
 
-        [DllImport("Project.dll")]
-        private static extern void EqualizeHistogram([In, Out] int[] redChannel, [In, Out] int[] greenChannel,
-                                            [In, Out] int[] blueChannel, int imageSize);
 
 
         public ImageBuffers BuffersFirstImage
